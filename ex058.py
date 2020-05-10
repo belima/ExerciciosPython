@@ -8,25 +8,25 @@ tentar descobrir o número escolhido.
 O programa deverá informar se o usuário venceu ou perdeu.
 '''
 
-
 from random import randint
-from time import sleep
 
 print('\n\033[1;31m{:^50}\033[m'.format('==|Chutaí!|=='))
 print('\033[1;31m-\033[m' * 50)
-pens = int(randint(0,5)) # Sorteia um numero
+pens = int(randint(0,10))   # Sorteia um numero
 
-print('\nOlá! Estou pensando em um número inteiro entre 0 e 5!')
+print('\nOlá! Estou pensando em um número inteiro entre 0 e 10!')
 
 chute = int(input('Adivinha qual é?!\n>>> '))
-print('Processando...')
-sleep(0.3)
+tent = 1
 
 while chute != pens:
     print('\033[1;31mErrrrou!!\033[m')
-    chute = int(input('Tenta de novo!\n>>> '))
-    print('Processando...')
-    sleep(0.3)
+    tent += 1
+    if chute > pens:
+        chute = int(input('Menos! Tenta de novo!\n>>> '))
+    elif chute < pens:
+        chute = int(input('Mais! Tenta de novo!\n>>> '))
 
 if chute == pens:
     print('\033[1;32mAcertou Miseravi!!!\033[m Era {} mermo! =D'.format(pens))
+    print('Acertou na {}ª tentativa!'.format(tent))
