@@ -4,11 +4,10 @@ peça a digitação novamente até obter um valor válido.
 '''
 val = ('m', 'M', 'f', 'F')
 
-sex = str(input('Sexo > '))
+sex = str(input('Sexo > ')).strip()[0]
 
 while sex not in val:
     if sex not in val:
         print('\033[31mOpção inválida\033[m')
-        sex = str(input('Sexo > '))
-
-print('\033[32mOpção válida\033[m')
+        sex = str(input('Sexo > ')).strip()[0]
+print('\033[32mOpção válida [{}]\033[m'.format(sex))
