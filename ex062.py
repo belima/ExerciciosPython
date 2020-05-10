@@ -30,11 +30,13 @@ while c > 0:
         termo += razao
         c -= 1
 
-i = int(1)
-while i != 0:
-    i = int(input('\nGostaria de ver mais quantos termos? (0 para sair)\n> '))
-    c = i
-    if i != 0:
+mais = 1
+qtd = 10
+while mais != 0:
+    mais = int(input('\nGostaria de ver mais quantos termos? (0 para sair)\n> '))
+    c = mais
+    qtd += mais
+    if mais != 0:
         if c > 1:
             print('Os {} termos seguintes dessa PA são:'.format(c))
         elif c == 1:
@@ -54,4 +56,4 @@ while i != 0:
                 termo += razao
                 c -= 1
 
-print('\nAté a próxima!')
+print('\n Foram exibidos {} termos. Até a próxima!'.format(qtd))

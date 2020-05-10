@@ -1,7 +1,6 @@
 '''
 leia um número e mostre seu fatorial.
 '''
-# todo Criar versão com for
 
 n = 1
 
