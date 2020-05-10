@@ -8,8 +8,6 @@ leia dois valores e depois mostre um menu na tela:
 '''
 from time import sleep
 
-#validas = (1, 2, 3, 4, 5)           # define opções válidas no menu
-
 print('Entre com os valores:')
 v1 = float(input('Valor 1 > '))     # lê valores
 v2 = float(input('Valor 2 > '))
