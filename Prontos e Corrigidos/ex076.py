@@ -13,5 +13,5 @@ print(f'{"LISTAGEM DE PREÇOS":^50}')
 print(linha)
 
 for n in range(0, len(prodpreços), 2):
-    print(f'{prodpreços[n]:.<40}R${prodpreços[n+1]:>7.2f}')
+    print(f'{prodpreços[n]:.<41}R${prodpreços[n+1]:>7.2f}')
 print(linha)
