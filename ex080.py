@@ -11,17 +11,17 @@ for c in range(0,5):
     n = int(input('Digite um valor: '))
     if len(lista) == 0:
         lista.append(n)
-        print(f'{n} inserido na {len(lista)}ª posição.')
+        print(f'{n} inserido ao final da lista.')
     else:
         for i, v in enumerate(lista):
             if n <= v:
                 lista.insert(i, n)
-                print(f'{n} inserido na {i + 1}ª posição.')
+                print(f'{n} inserido na {i + 1}ª posição da lista.')
                 break
             else:
                 if i == len(lista) - 1:
                     lista.append(n)
-                    print(f'{n} inserido na {len(lista)}ª posição.')
+                    print(f'{n} inserido ao final da lista.')
                     break
 sleep(1)
 print(f'Os valores inseridos foram: {lista}')

@@ -18,10 +18,10 @@ while True:
         break
     else:
         cont = ' '
-print(f'Os {len(lista)} valores digitados, foram {sorted(lista)}')
+print(f'Os {len(lista)} valores digitados, foram {sorted(lista, reverse=True)}')
 if 5 not in lista:
     print('O valor 5 não foi digitado.')
 else:
     print(f'O valor 5 foi digitado na(s) posição(ões): ', end='')
-    for i, v in enumerate(sorted(lista)):
+    for i, v in enumerate(sorted(lista, reverse=True)):
         print(f'{i + 1}... ' if v == 5 else '',end='')
