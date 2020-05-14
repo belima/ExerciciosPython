@@ -18,13 +18,13 @@ for c in range(0, 3):
 
 print('~~' * 30)
 for l in range(0,3):
-    print(f'[ {matriz[l][0]} ][ {matriz[l][1]} ][ {matriz[l][2]} ]')
-    for c in range(0, 3):
+    for c in range(0,3):
+        print(f'[ {matriz[l][c]:^5} ]', end='')
         if matriz[l][c] % 2 == 0:
             somapares += matriz[l][c]
         if c == 2:
             somaterc += matriz[l][c]
-
+    print()
 print('~~' * 30)
 print(f'A soma dos valores pares é {somapares}.')
 print(f'A soma dos valores da terceira coluna é {somaterc}.')

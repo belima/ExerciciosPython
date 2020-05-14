@@ -14,4 +14,6 @@ for c in range(0, 3):
 
 print('~~' * 30)
 for l in range(0,3):
-    print(f'[ {matriz[l][0]} ][ {matriz[l][1]} ][ {matriz[l][2]} ]')
+    for c in range(0,3):
+        print(f'[ {matriz[l][c]:^5} ]', end='')
+    print()
