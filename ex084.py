@@ -14,6 +14,13 @@ menorpeso = maiorpeso = 0
 while True:
     temp.append(str(input('Nome > ')).strip().title())
     temp.append(float(input('Peso > ')))
+    if len(nomepeso) == 0:
+        menorpeso = maiorpeso = temp[1]
+    else:
+        if temp[1] < menorpeso:
+            menorpeso = temp[1]
+        elif temp[1] > maiorpeso:
+            maiorpeso = temp[1]
     nomepeso.append(temp[:])
     temp.clear()
 
@@ -25,23 +32,14 @@ while True:
     else:
         continua = ' '
 
-for c in range(0, len(nomepeso)):
-    if c == 0:
-        menorpeso = maiorpeso = nomepeso[c][1]
-    else:
-        if nomepeso[c][1] < menorpeso:
-            menorpeso = nomepeso[c][1]
-        elif nomepeso[c][1] > maiorpeso:
-            maiorpeso = nomepeso[c][1]
-
 print('~~' * 30)
-print(f'Foi cadastrada 1 pessoa.' if len(nomepeso) == 1 else f'Foram cadastradas {len(nomepeso)} pessoas.')
+print(f'Foi cadastrada 1 pessoa.' if len(nomepeso) == 1 else f'Foram cadastradas {len(nomepeso)} pessoas. ')
 print(f'Pessoa(s) mais leves, com {menorpeso} Kg: ')
-for c in range(0,len(nomepeso)):
-    if nomepeso[c][1] == menorpeso:
-        print(f'- {nomepeso[c][0]} ')
+for c in nomepeso:
+    if c[1] == menorpeso:
+        print(f'- {c[0]} ')
 
 print(f'Pessoa(s) mais pesadas, com {maiorpeso} Kg: ')
-for c in range(0, len(nomepeso)):
-    if nomepeso[c][1] == maiorpeso:
-        print(f'- {nomepeso[c][0]} ')
+for c in nomepeso:
+    if c[1] == maiorpeso:
+        print(f'- {c[0]} ')
