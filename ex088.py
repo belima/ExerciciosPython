@@ -14,7 +14,7 @@ print('~~' * 20)
 
 no = int(input('Quantos jogos você quer? > '))
 
-print(f'~~~~~~~~~~ SORTEANDO {no} JOGOS ~~~~~~~~~~~\n')
+print(f'~~~~~~~~~~ SORTEANDO {no} JOGOS ~~~~~~~~~~~\n' if no > 1 else '~~~~~~~~~~ SORTEANDO 1 JOGO ~~~~~~~~~~~\n')
 for j in range(0, no):
     while len(jogo) < 6:
         temp = randint(1, 60)
