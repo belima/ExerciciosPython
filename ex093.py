@@ -11,16 +11,12 @@ separa = '~~' * 30
 jogador['nome'] = str(input('Nome do Jogador > ')).strip().capitalize()
 npartidas = int(input('Nº de partidas > '))
 for i in range(0, npartidas):
-    if i == 0:
-        jogador['gtotal'] = i
-    gpartida = int(input(f"   Gols na {i+1}ª partida > "))
-    jogador['gtotal'] += gpartida
-    gols.append(gpartida)
+    gols.append(int(input(f"   Gols na {i+1}ª partida > ")))
 jogador['gols'] = gols[:]
-
+jogador['gtotal'] = sum(gols)
 print(separa)
 print(jogador)
-print(separa)
+pr int(separa)
 for k, v in jogador.items():
     print(f"O campo {k} tem o valor {v}")
 print(separa)
