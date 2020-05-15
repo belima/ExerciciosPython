@@ -9,45 +9,44 @@ em uma lista. No final, mostre:
 
 pessoa = {}
 grupo = []
-continua = ' '
 somaidade = 0
 while True:
     pessoa['nome'] = str(input('Nome > ')).strip().capitalize()
-    pessoa['sexo'] = ' '
-    while pessoa['sexo'] not in 'MF':
+    while True:
         pessoa['sexo'] = str(input('Sexo [M/F] > ')).strip().upper()[0]
-    pessoa['idade'] = 0
-    while pessoa['idade'] <= 0:
+        if pessoa['sexo'] in 'MF':
+            break
+        print("ERRO! Digite M ou F .")
+    while True:
         pessoa['idade'] = int(input('Idade > '))
+        if pessoa['idade'] > 0:
+            break
     somaidade += pessoa['idade']
-    while continua not in 'SN':
+    grupo.append(pessoa.copy())
+    while True:
         continua = str(input("Continua? [S/N] > ")).strip().upper()[0]
+        if continua in 'SN':
+            break
+        print("ERRO! Digite S ou N.")
     if continua == 'N':
-        continua = ' '
-        grupo.append(pessoa.copy())
         break
-    elif continua == 'S':
-        continua = ' '
-        grupo.append(pessoa.copy())
 
 media = somaidade / len(grupo)
-
 
 print("~~" * 30)
 print(f"A) Ao todo temos {len(grupo)} pessoas cadastradas.")
 print(f"B) A média de idade é de {media:.2f} anos.")
 print("C) As mulheres cadastradas foram:")
-for c in range(0, len(grupo)):
-    if grupo[c]['sexo'] == 'F':
-        print(f"  - {grupo[c]['nome']}")
+for c in grupo:
+    if c['sexo'] == 'F':
+        print(f"  - {c['nome']}")
 print("D) Pessoas com idade acima da média registrada:")
-for c in range(0, len(grupo)):
-    for k, v in grupo[c].items():
-        if grupo[c]['idade'] > media:
-            if k == 'nome':
-                print("    ", end='')
-            print(f"{k} = {v}; ", end='')
-    if grupo[c]['idade'] > media:
+
+for c in grupo:
+    if c['idade'] > media:
+        print("    ", end='|')
+        for k, v in c.items():
+            print(f"{k} = {v}", end='|')
         print()
 
 print("~~" * 30)
