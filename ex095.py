@@ -8,30 +8,24 @@ jogadortemp = {}
 gols = []
 jogadores = []
 separa = '~~' * 30
-continua = ' '
 
 while True:
     jogadortemp['nome'] = str(input('Nome do Jogador > ')).strip().capitalize()
     npartidas = int(input('Nº de partidas > '))
+    gols.clear()
     for i in range(0, npartidas):
-        if i == 0:
-            jogadortemp['gtotal'] = i
-        gpartida = int(input(f"   Gols na {i+1}ª partida > "))
-        jogadortemp['gtotal'] += gpartida
-        gols.append(gpartida)
+        gols.append(int(input(f"   Gols na {i+1}ª partida > ")))
     jogadortemp['gols'] = gols[:]
-    t = len(gols)
-    for c in range(0, t):
-        gols.pop()
+    jogadortemp['gtotal'] = sum(gols)
     jogadores.append(jogadortemp.copy())
 
-    while continua not in 'SN':
+    while True:
         continua = str(input('Continua? [S/N] > ')).strip().upper()[0]
+        if continua in 'SN':
+            break
+        print("ERRO! digite S ou N.")
     if continua == 'N':
-        continua = ' '
         break
-    elif continua == 'S':
-        continua = ' '
 
 print(separa)
 print(" ID Nome           Gols p/ part   Total")
@@ -42,18 +36,21 @@ for c in range(0, len(jogadores)):
 print('-' * 40)
 
 while True:
-    while continua not in range(1, (len(jogadores) + 1)) and continua != 999:
-        continua = int(input('Mostrar dados de qual jogador? [999 p/ sair] > '))
-        if continua not in range(1, (len(jogadores) + 1)) and continua != 999:
-            print(f"    ERRO! Não existe jogador com ID {continua}")
-    if continua == 999:
-        continua = 0
+
+    while True:
+        busca = int(input('Mostrar dados de qual jogador? [999 p/ sair] > '))
+        if busca in range(1, (len(jogadores) + 1)) or busca == 999:
+            break
+        print(f"    ERRO! Não existe jogador com ID {busca}")
+    if busca == 999:
         break
 
-    print(f" -- LEVANTAMENTO DO JOGADOR {jogadores[continua - 1]['nome']}:")
-    for k, v in enumerate(jogadores[continua - 1]['gols']):
+    print(f" -- LEVANTAMENTO DO JOGADOR {jogadores[busca - 1]['nome']}:")
+    if len(jogadores[busca - 1]['gols']) == 0:
+        print(f"    {jogadores[busca - 1]['nome']} não jogou nenhuma partida.")
+    for k, v in enumerate(jogadores[busca - 1]['gols']):
         print(f"    No jogo {k+1} fez {v} gols.")
-    continua = 0
+
 print("encerrando...")
 sleep(1)
 print("    << VOLTE SEMPRE! >>  ")
