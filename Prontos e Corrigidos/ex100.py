@@ -9,27 +9,27 @@ from time import sleep
 
 numeros = []
 
-def sorteia():
+def sorteia(lista):
     print("Sorteando 5 valores: ", end='')
     sleep(1)
     for i in range(0,5):
         rnd = randint(0, 100)
         sleep(0.3)
         print(f"{rnd} ", end='')
-        numeros.append(rnd)
+        lista.append(rnd)
     sleep(0.5)
     print("Pronto!")
 
 
-def somapar():
+def somapar(lista):
     soma = 0
-    for n in numeros:
+    for n in lista:
         if n % 2 == 0:
             soma += n
     sleep(0.5)
-    print(f"A soma dos valores pares em {numeros} é {soma}.")
+    print(f"A soma dos valores pares em {lista} é {soma}.")
 
-sorteia()
+sorteia(numeros)
 
-somapar()
+somapar(numeros)
 
