@@ -2,7 +2,7 @@
 adapte o código do ex107 criando uma função adicional chamada moeda() que consiga mostrar os valores como um valor
 monetário formatado.
 '''
-import moeda
+from utilidadesCeV import moeda
 
 valor = float(input('Digite o preço: R$'))
 

@@ -2,7 +2,7 @@
 modifique as funções que foram criadas no ex107 para que elas aceitem um parâmetro a mais, informando se o valor
 retornado vai ou não ser formatado pela função moeda(), desenvolvida no ex108.
 '''
-import moeda
+from utilidadesCeV import moeda
 
 valor = float(input('Digite o preço: R$'))
 
