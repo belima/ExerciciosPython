@@ -5,16 +5,13 @@ numéricos inteiros.
 def leiaint(perg=None):
     while True:
         print(perg, end='')
-        inteiro = input()
+        inteiro = input().strip()
         if inteiro.isnumeric():
             break
-        print('Apenas números inteiros são aceitos.')
+        print('\033[31mApenas números inteiros são aceitos.\033[m')
 
     return int(inteiro)
 
 
-a = leiaint('Valor A: ')
-b = leiaint('Valor B: ')
-
-s = a + b
-print(s)
+n = leiaint('Digite um número: ')
+print(f"Você digitou o número {n}")

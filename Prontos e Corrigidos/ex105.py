@@ -21,18 +21,10 @@ def notas(*nts, mostrasitu=False):
 
 
     dici = {}
-    somants = 0
     dici['qtd'] = len(nts)
-    for k, v in enumerate(nts):
-        if k == 0:
-            dici['maior'] = dici['menor'] = v
-        if v > dici['maior']:
-            dici['maior'] = v
-        if v < dici['menor']:
-            dici['menor'] = v
-        somants += v
-
-    dici['media'] = somants / dici['qtd']
+    dici['maior'] = max(nts)
+    dici['menor'] = min(nts)
+    dici['media'] = sum(nts) / len(nts)
 
     if mostrasitu:
         if dici['media'] >= 7:
@@ -43,12 +35,7 @@ def notas(*nts, mostrasitu=False):
             dici['situ'] = 'RUIM'
 
     return dici
-'''
-    if not mostrasitu:
-        return dici['qtd'], dici['maior'], dici['menor'], dici['media']
-    if mostrasitu:
-        return dici['qtd'], dici['maior'], dici['menor'], dici['media'], dici['situ']
-'''
 
-dicionario = notas(3.5, 2, 6.5, 2, 7, 4, mostrasitu=True)
+
+dicionario = notas(9, 10, 5.5, 2.5, 8.5, mostrasitu=True)
 print(dicionario)
