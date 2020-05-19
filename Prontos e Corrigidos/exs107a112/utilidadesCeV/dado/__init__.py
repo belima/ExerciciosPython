@@ -1,4 +1,4 @@
-def leiadin(msg):
+def leiadin(msg=''):
     """
     -> Validação de dados para valores financeiros. Aceita '.' ou ',' como separador decimal e retorna o valor, float
     com '.'. Não aceita strings vazias ou com letras.

@@ -9,7 +9,7 @@ from utilidadesCeV import dado
 from utilidadesCeV import moeda
 
 
-v = dado.leiadin(msg='Digite o valor > R$')
+v = dado.leiadin('Digite o valor > R$')
 a = float(input('Quantos % de acréscimo? '))
 d = float(input('Quantos % de desconto? '))
 moeda.resumo(v, a, d)
